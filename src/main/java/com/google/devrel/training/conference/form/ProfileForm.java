@@ -19,7 +19,6 @@ public class ProfileForm {
     /**
      * Constructor for ProfileForm, solely for unit test.
      * @param displayName A String for displaying the user on this system.
-     * @param notificationEmail An e-mail address for getting notifications from this system.
      */
     public ProfileForm(String displayName, TeeShirtSize teeShirtSize) {
         this.displayName = displayName;
