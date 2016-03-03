@@ -1,7 +1,8 @@
 package com.google.devrel.training.conference.domain;
 
-import com.google.devrel.training.conference.form.ProfileForm;
+import com.google.common.collect.ImmutableList;
 import com.google.devrel.training.conference.form.ProfileForm.TeeShirtSize;
+import com.googlecode.objectify.annotation.Cache;
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
 import com.google.common.collect.ImmutableList;
@@ -11,10 +12,12 @@ import java.util.List;
 
 
 @Entity
+@Cache
 public class Profile {
 	String displayName;
 	String mainEmail;
 	TeeShirtSize teeShirtSize;
+	List <String> conferenceKeysToAttend = new ArrayList<>(0);
 
 	@Id String userId;
     
@@ -57,10 +60,7 @@ public class Profile {
 	/**
      * Just making the default constructor private.
      */
-    private Profile() {}
-
-	// List of conferences the user has registered to attend
-	private List<String> conferenceKeysToAttend = new ArrayList<>(0);
+	private Profile() {}
 
 	public List<String> getConferenceKeysToAttend() {
 		return ImmutableList.copyOf(conferenceKeysToAttend);
